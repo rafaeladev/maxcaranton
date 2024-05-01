@@ -1,0 +1,64 @@
+// Barlow Condensed
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+// Josefin Sans
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+#root,
+html,
+main {
+    font-family: 'Josefin Sans', sans-serif;
+    color: $color-secondary;
+    font-size: 18px;
+    line-height: 1.5;
+    @include mobile-only {
+        font-size: 20px;
+    }
+}
+
+h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 5.33rem;
+    font-weight: 400;
+    font-style: normal;
+    color: $color-accent;
+    @include mobile-only {
+        font-size: 2.5rem;
+    }
+}
+
+h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.66rem;
+
+    @include mobile-only {
+        font-size: 1.5rem;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $color-secondary;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        width: 0%;
+        height: 0.11rem;
+        background-color: $color-accent;
+        transform-origin: top left;
+        transition: all 0.3s ease-in;
+    }
+    &:hover {
+        color: $color-accent;
+
+        &:after {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.footerbar {
+    width: calc(100% - 2 * $page-inline-padding);
+    padding-inline: $page-inline-padding;
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    align-items: center;
+    height: 12.67rem;
+    border-top: 0.11rem solid $color-secondary;
+    @include mobile-only {
+        padding-inline: $mobile-page-inline-padding;
+        width: calc(100% - 2 * $mobile-page-inline-padding);
+    }
+    @include tablette-only {
+        padding-inline: $tablette-page-inline-padding;
+        width: calc(100% - 2 * $tablette-page-inline-padding);
+    }
+    &__title {
+        font-size: 2.2rem;
+        font-family: $font-title;
+        color: $color-secondary;
+        margin: 0;
+        transition: all 0.3s ease-in-out;
+    }
+    &__icons {
+        display: flex;
+        flex-direction: colum;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    &__credits {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    &__content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+}

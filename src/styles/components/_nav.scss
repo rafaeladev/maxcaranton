@@ -1,0 +1,103 @@
+.navbar {
+    width: calc(100% - 2 * $page-inline-padding);
+    padding-inline: $page-inline-padding;
+    height: 5rem;
+    border-bottom: 0.11rem solid $color-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    position: relative;
+    z-index: 100;
+    @include mobile-only {
+        padding-inline: $mobile-page-inline-padding;
+        width: calc(100% - 2 * $mobile-page-inline-padding);
+    }
+    @include tablette-only {
+        padding-inline: $tablette-page-inline-padding;
+        width: calc(100% - 2 * $tablette-page-inline-padding);
+    }
+    &__content {
+        width: 100%;
+        max-width: 1440px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__title {
+        font-size: 2.66rem;
+        font-family: $font-title;
+        color: $color-accent;
+        transition: all 0.3s ease-in-out;
+        @include mobile-only {
+            font-size: 1.5rem;
+        }
+        @include tablette-only {
+            font-size: 2rem;
+        }
+        &:hover {
+            color: $color-secondary;
+        }
+    }
+    &__link {
+        color: $color-secondary;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        font-size: 1rem;
+        background-color: transparent;
+        border: none;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        @include mobile-only {
+            display: none;
+        }
+        &:after {
+            width: 0%;
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 2rem;
+            height: 0.11rem;
+            left: 0;
+            background-color: $color-accent;
+            transform-origin: top left;
+            transition: all 0.3s ease-in;
+        }
+        &:hover {
+            color: $color-accent;
+
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+    &__active {
+        color: $color-accent;
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 2rem;
+            width: 100%;
+            height: 0.11rem;
+            background-color: $color-accent;
+        }
+    }
+    &__linksList {
+        display: flex;
+        gap: 2rem;
+        justify-content: flex-end;
+        align-items: flex-end;
+        // height: 100%;
+    }
+    &__icons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+}
