@@ -1,9 +1,16 @@
 .bannerbar {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
+    height: 1024px;
+    position: relative;
+    background-image: url('/banner.svg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    @include mobile-only {
+        height: 512px;
+    }
     &::after {
         content: '';
         position: absolute;
@@ -11,19 +18,33 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: -1;
     }
     &__title {
+        padding-left: $page-inline-padding;
         color: $color-secondary;
-        position: absolute;
-        top: 30%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
         margin: 0;
-        z-index: 1;
-        margin-left: $page-inline-padding;
+        z-index: 10;
+        align-items: flex-start;
+        max-width: 1440px;
+
+        @include mobile-only {
+            padding-left: 0;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
         & h1 {
             margin-top: 0;
             margin-bottom: 1rem;
             line-height: 5rem;
+            @include mobile-only {
+                margin-inline: auto;
+            }
         }
         & p {
             margin-top: 0;
@@ -31,7 +52,16 @@
         }
     }
     & img {
-        position: relative;
-        width: 100%;
+        width: 16.2rem;
+        @include mobile-only {
+            margin-inline: auto;
+            width: 10rem;
+        }
+    }
+    &__button {
+        margin-left: 3rem;
+        @include mobile-only {
+            margin-inline: auto;
+        }
     }
 }

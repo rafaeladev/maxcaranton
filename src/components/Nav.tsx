@@ -1,27 +1,47 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import mail from '/mail.svg';
 import instagram from '/instagram.svg';
 
+import maxNavLogo from '/max-nav-logo.svg';
+import NavLinks from './NavLinks';
+import BurgerMenu from './BurgerMenu';
+
 function Nav() {
-    const [activeId, setActiveId] = useState('');
-    // handleScrollToSection
-    const handleScrollToSection = (sectionId: string) => {
-        setActiveId(sectionId);
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        console.log('je suis la');
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            console.log(scrollPosition);
+            if (scrollPosition > 100) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        handleScroll();
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
-        <nav className='navbar'>
+        <nav className={scrolled ? 'navbar navbar--scrolled' : 'navbar'}>
             <div className='navbar__content'>
                 <Link
                     to='/'
                     className='navbar__title'
                 >
-                    Max Caranton
+                    <img
+                        src={maxNavLogo}
+                        alt='maxNavLogo'
+                    />
                 </Link>
                 <div className='navbar__icons'>
                     <img
@@ -33,49 +53,11 @@ function Nav() {
                         alt='instagram'
                     />
                 </div>
-                <div className='navbar__linksList'>
-                    <button
-                        onClick={() => handleScrollToSection('section-quisuisje')}
-                        className={`navbar__link ${
-                            activeId === 'section-quisuisje' ? 'navbar__active' : ''
-                        }`}
-                    >
-                        Qui suis-je
-                    </button>
-                    <button
-                        onClick={() => handleScrollToSection('section-coach')}
-                        className={`navbar__link ${
-                            activeId === 'section-coach' ? 'navbar__active' : ''
-                        }`}
-                    >
-                        Coach sportif
-                    </button>
-                    <button
-                        onClick={() => handleScrollToSection('section-actualites')}
-                        className={`navbar__link ${
-                            activeId === 'section-actualites' ? 'navbar__active' : ''
-                        }`}
-                    >
-                        Actualités
-                    </button>
-                    <button
-                        onClick={() => handleScrollToSection('section-temoinages')}
-                        className={`navbar__link ${
-                            activeId === 'section-temoinages' ? 'navbar__active' : ''
-                        }`}
-                    >
-                        Témoignages
-                    </button>
-                    <button
-                        onClick={() => handleScrollToSection('section-contact')}
-                        className={`navbar__link ${
-                            activeId === 'section-contact' ? 'navbar__active' : ''
-                        }`}
-                    >
-                        Contact
-                    </button>
+                <div className='navbar__desktop'>
+                    <NavLinks />
                 </div>
             </div>
+            <BurgerMenu />
         </nav>
     );
 }

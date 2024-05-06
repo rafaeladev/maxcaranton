@@ -12,7 +12,7 @@ main {
     font-size: 18px;
     line-height: 1.5;
     @include mobile-only {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -22,17 +22,101 @@ h1 {
     font-weight: 400;
     font-style: normal;
     color: $color-accent;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    text-shadow: 3px 3px 0px $color-accent-shadow;
+    margin: 0;
+    text-shadow: 2px 2px 0px $color-accent-shadow;
     @include mobile-only {
-        font-size: 2.5rem;
+        font-size: 3rem;
+        margin: auto;
+    }
+    &:after {
+        width: 100%;
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 1.5rem;
+        height: 1rem;
+        left: 0;
+        background-color: $color-tertiary;
+        transform-origin: top left;
+        transition: all 0.3s ease-in;
+        border-radius: 2rem;
+        opacity: 0.2;
+        z-index: -1;
+        @include mobile-only {
+            bottom: 0.5rem;
+            height: 0.5rem;
+        }
     }
 }
 
 h2 {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 2.66rem;
-
+    font-size: 5.33rem;
+    font-weight: 400;
+    font-style: normal;
+    color: $color-accent;
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+    text-shadow: 3px 3px 0px $color-accent-shadow;
     @include mobile-only {
-        font-size: 1.5rem;
+        font-size: 3rem;
+        text-shadow: 2px 2px 0px $color-accent-shadow;
+    }
+    &:after {
+        width: 100%;
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 1.5rem;
+        height: 1rem;
+        left: 0;
+        background-color: $color-tertiary;
+        transform-origin: top left;
+        transition: all 0.3s ease-in;
+        border-radius: 2.5rem;
+        opacity: 0.2;
+        z-index: -1;
+        @include mobile-only {
+            bottom: 0.5rem;
+            height: 0.5rem;
+        }
+    }
+}
+
+h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.66rem;
+    position: relative;
+    font-weight: normal;
+    padding-inline: 0.4rem;
+    text-shadow: 1px 1px 0px $color-shadow;
+    z-index: 1;
+    &:after {
+        width: 100%;
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 1rem;
+        height: 0.8rem;
+        left: 0;
+        background-color: $color-accent;
+        transform-origin: top left;
+        transition: all 0.3s ease-in;
+        border-radius: 2rem;
+        opacity: 0.7;
+        z-index: -1;
+        @include mobile-only {
+            bottom: 0.5rem;
+            height: 0.5rem;
+        }
+    }
+    @include mobile-only {
+        font-size: 1.8rem;
     }
 }
 
@@ -42,17 +126,21 @@ a {
     font-size: 1rem;
     transition: all 0.3s ease-in-out;
     position: relative;
+
     &:after {
         content: '';
         display: block;
         position: absolute;
-        bottom: 2rem;
+        bottom: 0.3rem;
         left: 0;
         width: 0%;
-        height: 0.11rem;
-        background-color: $color-accent;
+        height: 0.5rem;
+        background-color: $color-secondary;
         transform-origin: top left;
         transition: all 0.3s ease-in;
+        border-radius: 2rem;
+        opacity: 0.5;
+        z-index: -1;
     }
     &:hover {
         color: $color-accent;
@@ -61,4 +149,12 @@ a {
             width: 100%;
         }
     }
+}
+
+.text-nav {
+    font-family: $font-text;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-style: normal;
+    letter-spacing: 0.15rem;
 }

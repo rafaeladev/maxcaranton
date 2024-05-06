@@ -1,13 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
+import Banner from './Banner';
 function Layout() {
     return (
         <main>
             <Nav />
-            <div className='siteWrapper'>
-                <Outlet />
+            <div className='banner'>
+                <Banner />
             </div>
+            <Outlet />
             <Footer />
         </main>
     );
