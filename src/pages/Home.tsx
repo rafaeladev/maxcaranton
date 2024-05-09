@@ -97,7 +97,7 @@ function Home() {
             </section>
             <section>
                 <h2 id='section-actualites'>Actualités</h2>
-                <InstagramFeed />
+                {/* <InstagramFeed /> */}
             </section>
             <section>
                 <h2 id='section-temoinages'>Témoignages</h2>

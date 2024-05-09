@@ -130,6 +130,18 @@
     }
 }
 
-.navbar--scrolled {
-    background-color: $color-secondary;
+.navbar.scrolled {
+    background-color: $color-shadow !important;
+    border-bottom: 0rem solid $color-accent;
+    box-shadow: 2px 2px 0px $color-accent;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.div1 {
+    width: 100%;
+    top: 10rem;
+    position: absolute;
+    min-height: 2rem;
+    // background-color: aqua;
+    z-index: 100;
 }

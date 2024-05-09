@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useLayoutEffect, useState } from 'react';
 
 import mail from '/mail.svg';
 import instagram from '/instagram.svg';
@@ -8,58 +8,76 @@ import maxNavLogo from '/max-nav-logo.svg';
 import NavLinks from './NavLinks';
 import BurgerMenu from './BurgerMenu';
 
-function Nav() {
-    const [scrolled, setScrolled] = useState(false);
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-    useEffect(() => {
-        console.log('je suis la');
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            console.log(scrollPosition);
-            if (scrollPosition > 100) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
+const Nav = () => {
+    const navRef = useRef<HTMLDivElement>(null);
+    const div1 = useRef<HTMLDivElement>(null);
 
-        handleScroll();
+    // window.addEventListener('scroll', () => console.log(window.scrollY));
 
-        window.addEventListener('scroll', handleScroll);
+    useLayoutEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        const triggerElement = div1.current;
+        const navbar = navRef.current;
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        if (triggerElement && navbar) {
+            ScrollTrigger.create({
+                trigger: triggerElement,
+                start: 'top 5.8%', // Quand le haut de div1 atteint le centre du viewport
+                end: 'bottom bottom', // Vous pourriez ne pas avoir besoin de cette ligne si vous voulez que l'effet persiste
+                toggleClass: { targets: navbar, className: 'scrolled' },
+                markers: true,
+                onEnter: () => navbar.classList.add('scrolled'), // Assure que la classe reste
+                onLeaveBack: ({ progress, direction, isActive }) => {
+                    // Supprime la classe si vous revenez en arrière
+                    if (direction === -1) {
+                        navbar.classList.remove('scrolled');
+                    }
+                },
+            });
+        }
     }, []);
+
     return (
-        <nav className={scrolled ? 'navbar navbar--scrolled' : 'navbar'}>
-            <div className='navbar__content'>
-                <Link
-                    to='/'
-                    className='navbar__title'
-                >
-                    <img
-                        src={maxNavLogo}
-                        alt='maxNavLogo'
-                    />
-                </Link>
-                <div className='navbar__icons'>
-                    <img
-                        src={mail}
-                        alt='mail'
-                    />
-                    <img
-                        src={instagram}
-                        alt='instagram'
-                    />
+        <>
+            <nav
+                className={'navbar '}
+                ref={navRef}
+            >
+                <div className='navbar__content'>
+                    <Link
+                        to='/'
+                        className='navbar__title'
+                    >
+                        <img
+                            src={maxNavLogo}
+                            alt='maxNavLogo'
+                        />
+                    </Link>
+                    <div className='navbar__icons'>
+                        <img
+                            src={mail}
+                            alt='mail'
+                        />
+                        <img
+                            src={instagram}
+                            alt='instagram'
+                        />
+                    </div>
+                    <div className='navbar__desktop'>
+                        <NavLinks />
+                    </div>
                 </div>
-                <div className='navbar__desktop'>
-                    <NavLinks />
-                </div>
-            </div>
-            <BurgerMenu />
-        </nav>
+                <BurgerMenu />
+            </nav>
+            <div
+                className='div1'
+                ref={div1}
+            ></div>
+        </>
     );
-}
+};
 
 export default Nav;
