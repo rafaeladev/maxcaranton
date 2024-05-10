@@ -1,0 +1,43 @@
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: space-between;
+    @include mobile-only {
+        gap: 1.5rem;
+    }
+}
+
+.newsCard {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    border-radius: $border-radius;
+    & img {
+        width: 100%;
+        height: 100%;
+        border-radius: $border-radius;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-color: $color-shadow;
+        transition: opacity 0.3s ease-in-out;
+    }
+    &:hover {
+        &::after {
+            opacity: 0.4;
+        }
+    }
+    &__link {
+        width: 20%;
+        @include mobile-only {
+            width: 100%;
+        }
+    }
+}

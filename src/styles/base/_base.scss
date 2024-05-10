@@ -56,6 +56,20 @@ section {
     }
     @include mobile-only {
         padding-top: 1rem;
-        padding-bottom: 4rem;
+        padding-bottom: 1rem;
     }
+}
+article {
+    padding-block: 3rem;
+    @include mobile-only {
+        padding-block: 1rem;
+    }
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
 }

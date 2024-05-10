@@ -8,14 +8,17 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ title, image, description }) => {
     return (
-        <div className='card__content'>
+        <li
+            className='card__content'
+            key={`card ${title}`}
+        >
             <h3 className='card__title'>{title}</h3>
             <img
                 src={image}
                 alt={title}
             />
             <p>{description}</p>
-        </div>
+        </li>
     );
 };
 

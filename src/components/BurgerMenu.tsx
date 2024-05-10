@@ -31,7 +31,7 @@ const BurgerMenu = () => {
             <div className={`hamburger__menu  ${isBurgerMenuOpened && 'hamburger--open'}`}>
                 {/* ${isBurgerMenuOpened && 'hamburger--open'} */}
                 <div className='hamburger__menu__list'>
-                    <NavLinks />
+                    <NavLinks toggleMenu={toggleMenu} />
                 </div>
             </div>
         </>

@@ -1,0 +1,23 @@
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    padding: 2rem 0;
+    justify-content: center;
+    &__button {
+        border-radius: 25rem;
+        padding: 0.8rem;
+        border: none;
+        font-size: 1rem;
+    }
+    &--page {
+        background-color: $color-tertiary;
+        color: $color-secondary;
+    }
+    &--avance {
+        background-color: $color-tertiary;
+        color: $color-tertiary;
+    }
+    &--active {
+        background-color: $color-secondary;
+    }
+}

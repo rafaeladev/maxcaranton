@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useLayoutEffect, useState } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 
 import mail from '/mail.svg';
 import instagram from '/instagram.svg';
@@ -28,9 +28,9 @@ const Nav = () => {
                 start: 'top 5.8%', // Quand le haut de div1 atteint le centre du viewport
                 end: 'bottom bottom', // Vous pourriez ne pas avoir besoin de cette ligne si vous voulez que l'effet persiste
                 toggleClass: { targets: navbar, className: 'scrolled' },
-                markers: true,
+                // markers: true,
                 onEnter: () => navbar.classList.add('scrolled'), // Assure que la classe reste
-                onLeaveBack: ({ progress, direction, isActive }) => {
+                onLeaveBack: ({ direction }) => {
                     // Supprime la classe si vous revenez en arrière
                     if (direction === -1) {
                         navbar.classList.remove('scrolled');

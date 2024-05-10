@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://maxcaranton.com
+
+# Sitemaps
+Sitemap: https://maxcaranton.com/sitemap.xml

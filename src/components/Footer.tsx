@@ -1,13 +1,18 @@
 import mail from '/mail.svg';
 import instagram from '/instagram.svg';
 import { Link } from 'react-router-dom';
+import banner from '/logo-footer.svg';
 
 const Footer = () => {
     return (
         <footer className='footerbar'>
             <div className='footerbar__content'>
-                <p className='footerbar__title'>Max Caranton</p>
-                <p>Coach sportif</p>
+                <img
+                    src={banner}
+                    alt='footerbar__banner'
+                    className='footerbar__banner'
+                />
+                <p className='footerbar__text'>COACH SPORTIF</p>
 
                 <div className='footerbar__icons'>
                     <img

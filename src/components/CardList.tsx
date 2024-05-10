@@ -13,7 +13,7 @@ type CardListProps = {
 
 const CardList: React.FC<CardListProps> = ({ cards }) => {
     return (
-        <div className='card-list'>
+        <ul className='card-list'>
             {cards.map((card, index) => (
                 <Card
                     key={index}
@@ -22,7 +22,7 @@ const CardList: React.FC<CardListProps> = ({ cards }) => {
                     description={card.description}
                 />
             ))}
-        </div>
+        </ul>
     );
 };
 

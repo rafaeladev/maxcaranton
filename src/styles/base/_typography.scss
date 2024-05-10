@@ -11,6 +11,7 @@ main {
     color: $color-secondary;
     font-size: 18px;
     line-height: 1.5;
+    letter-spacing: 0.05rem;
     @include mobile-only {
         font-size: 18px;
     }
@@ -81,6 +82,7 @@ h2 {
         border-radius: 2.5rem;
         opacity: 0.2;
         z-index: -1;
+
         @include mobile-only {
             bottom: 0.5rem;
             height: 0.5rem;
@@ -120,12 +122,20 @@ h3 {
     }
 }
 
+h4 {
+    font-family: $font-title;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
 a {
     text-decoration: none;
     color: $color-secondary;
     font-size: 1rem;
     transition: all 0.3s ease-in-out;
     position: relative;
+    text-shadow: 1px 1px 0px $color-shadow;
 
     &:after {
         content: '';
@@ -139,7 +149,7 @@ a {
         transform-origin: top left;
         transition: all 0.3s ease-in;
         border-radius: 2rem;
-        opacity: 0.5;
+        opacity: 0.2;
         z-index: -1;
     }
     &:hover {
@@ -157,4 +167,11 @@ a {
     text-transform: uppercase;
     font-style: normal;
     letter-spacing: 0.15rem;
+}
+
+input,
+textarea {
+    font-family: $font-text;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
 }

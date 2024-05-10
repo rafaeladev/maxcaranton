@@ -1,15 +1,23 @@
 import { useState } from 'react';
 
-function NavLinks() {
+interface NavLinksProps {
+    toggleMenu?: () => void; // Déclare toggleMenu comme une fonction facultative
+}
+
+function NavLinks({ toggleMenu }: NavLinksProps) {
     const [activeId, setActiveId] = useState('');
-    // handleScrollToSection
+
     const handleScrollToSection = (sectionId: string) => {
         setActiveId(sectionId);
         const section = document.getElementById(sectionId);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
         }
+        if (toggleMenu) {
+            toggleMenu(); // Appelle toggleMenu si elle est fournie
+        }
     };
+
     return (
         <div className='navbar__linksList'>
             <button
