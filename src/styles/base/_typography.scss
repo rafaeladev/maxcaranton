@@ -13,7 +13,7 @@ main {
     line-height: 1.5;
     letter-spacing: 0.05rem;
     @include mobile-only {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -174,4 +174,13 @@ textarea {
     font-family: $font-text;
     font-size: 1rem;
     letter-spacing: 0.05rem;
+}
+
+u {
+    background-color: $color-accent;
+    text-decoration: none;
+}
+
+strong {
+    color: $color-accent;
 }

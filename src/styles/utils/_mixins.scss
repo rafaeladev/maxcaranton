@@ -34,7 +34,7 @@
     font-family: $font-text;
     border: 0;
     font-size: 1rem;
-    border: 1px solid $background-begin;
+    border: $border-width solid $background-begin;
     padding: 0.8rem 2rem;
     color: $color-border;
     cursor: pointer;
@@ -60,6 +60,7 @@
     }
     &:hover {
         color: white;
+        border: $border-width solid $background-begin;
         // background-color: $background-end;
         &::after {
             transform: translateX(0px);

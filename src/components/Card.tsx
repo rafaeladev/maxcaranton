@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 type CardProps = {
     title: string;
@@ -17,7 +19,14 @@ const Card: React.FC<CardProps> = ({ title, image, description }) => {
                 src={image}
                 alt={title}
             />
-            <p>{description}</p>
+            <ReactMarkdown
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                    p: ({ ...props }) => <p {...props} />,
+                }}
+            >
+                {description}
+            </ReactMarkdown>
         </li>
     );
 };
