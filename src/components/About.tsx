@@ -4,7 +4,6 @@ import { useContentContext } from "../utils/ContentContext";
 
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { register } from "ts-node";
 
 interface Props {
   aboutRef: React.RefObject<HTMLDivElement>;
